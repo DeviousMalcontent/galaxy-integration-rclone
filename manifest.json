@@ -1,11 +1,11 @@
 {
-    "name": "Dosbox plugin",
+    "name": "Rclone plugin",
     "platform": "jaguar",
     "guid": "c1236e5a-5f3a-4681-942a-746433f255ff",
     "version": "0.1",
-    "description": "Dosbox plugin",
-    "author": "Hector",
-    "email": "hector@torum.com.ar",
-    "url": "https://github.com/j-selby/galaxy-integration-citra",
+    "description": "Rclone plugin",
+    "author": "Mark",
+    "email": "deviousmalcon-t@users.sourceforge.net",
+    "url": "https://github.com/DeviousMalcontent/galaxy-integration-rclone",
     "script": "plugin.py"
 }

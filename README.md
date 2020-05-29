@@ -4,7 +4,7 @@ A GOG Galaxy 2.0 integration for Rclone.org
 ## Features: (To be implemented...)
 - Store your own games on a cloud based service (Microsoft OneDrive, Dropbox, Google Drive etc.) and access them via the GOG client, (See https://rclone.org/#providers for more details on available service providers...)
 - Owned games are expected to be stored in a folder on your cloud storage provider making them easier to manage.
-- Specify a folder when enabling the plugin. Multiple folders containing files can be setup (separated by semicolon ";". Ie "c:\DOSBOX;d:\MOREDOSBOX")
+- Specify a folder when enabling the plugin. Multiple folders containing files can be setup (separated by semicolon ";". Ie "c:\RcloneGameLibraryPath\;d:\MoreRcloneGameLibraryPath")
 - Only Windows is supported.
 
 ## Background
@@ -21,21 +21,21 @@ Download the .zip from the GitHub as a ZIP file, and extract the contents into y
 The default folderis at `%localappdata%\GOG.com\Galaxy\plugins\installed`
 
 ## How to add games:
-On your Cloud Storage Provider, make a new folder to store your games, place each game in its own sub folder, for example "Pray (2006)", as long as it complies with the naming schemed allowed by your Cloud Storage provider.
+- On your Cloud Storage Provider, make a new folder to store your games, place each game in its own sub folder, for example "Pray (2006)", as long as it complies with the naming schemed allowed by your Cloud Storage provider.
 
-Next either rip the Disc or install the game to a system and copy the contents of the games folder to your hard Drive and then upload it into the folder made on your Cloud Storage Provider.
+- Next either rip the Disc or install the game to a system and copy the contents of the games folder to your hard Drive and then upload it into the folder made on your Cloud Storage Provider.
 
-Run rclone config (there might be a UI interface for this as part of RcloneWrapper.exe), setup a remote path in Rclone using instructions provided by Rclones website, (See the config page alongside Supported providers, https://rclone.org/#providers)
+- Run rclone config (there might be a UI interface for this as part of RcloneWrapper.exe), setup a remote path in Rclone using instructions provided by Rclones website, (See the config page alongside Supported providers, https://rclone.org/#providers)
 
-Run RcloneWrapper.exe from command line with the following switches, for example if you named your remote path OneDriveGames: and make a subfolder call games run `RcloneWrapper.exe -AddPath OneDriveGames:\Games`
+- Run RcloneWrapper.exe from command line with the following switches, for example if you named your remote path OneDriveGames: and make a subfolder call games run `RcloneWrapper.exe -AddPath OneDriveGames:\Games`
 
-A new file should now appear in the `OneDriveGames:\Games` folder called `GameLibrary.db3`
+- A new file should now appear in the `OneDriveGames:\Games` folder called `GameLibrary.db3`
 
-To add a game run the following command line switch: `RcloneWrapper.exe -AddGame OneDriveGames:\Games\Prey (2006),C:\GameInstallPath\FileToExecute.exe,"Prey (2006)"`
+- To add a game run the following command line switch: `RcloneWrapper.exe -AddGame OneDriveGames:\Games\Prey (2006),C:\GameInstallPath\FileToExecute.exe,"Prey (2006)"`
 
-To run a game run the following command line switch: `RcloneWrapper.exe -RunGame FileToExecute.exe`
+- To run a game run the following command line switch: `RcloneWrapper.exe -RunGame FileToExecute.exe`
 
-*#Plugin is Beta use at own risk! 
+*Plugin is Beta use at own risk! 
 
 ## Known Issues/Caveats/Requirements:
 - The plugin will be listed as ATARI JAGUAR in GOG Galaxy... as custom platforms are a supported at this time.

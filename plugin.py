@@ -40,7 +40,7 @@ class AuthenticationHandler(BaseHTTPRequestHandler):
         <!DOCTYPE html>
         <html>
         <head>
-            <title>Dosbox Integration</title>
+            <title>Rclone.org Integration</title>
             <link href="https://fonts.googleapis.com/css?family=Lato:300&display=swap" rel="stylesheet"> 
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" integrity="sha256-vK3UTo/8wHbaUn+dTQD0X6dzidqc5l7gczvH+Bnowwk=" crossorigin="anonymous" />
             <style>
@@ -91,7 +91,7 @@ class AuthenticationHandler(BaseHTTPRequestHandler):
         </head>
         <body>
             <div class="header">
-                Dosbox Plugin Configuration
+                Rclone.org Plugin Configuration
             </div>
             
             <br />
@@ -129,7 +129,7 @@ class AuthenticationServer(threading.Thread):
         self.httpd.serve_forever()
 
 
-class DosboxPlugin(Plugin):
+class RclonePlugin(Plugin):
     def __init__(self, reader, writer, token):
         super().__init__(Platform.AtariJaguar, "0.1", reader, writer, token)
         self.games = []
@@ -146,7 +146,7 @@ class DosboxPlugin(Plugin):
         from os.path import join
         for game in self.games:
             if game.program_id == game_id:
-                modpath = "%%localappdata%%\\GOG.com\\Galaxy\\plugins\\installed\\atarijaguar_c1236e5a-5f3a-4681-942a-746433f255ff\\dosziplaunch.exe"
+                modpath = "%%localappdata%%\\GOG.com\\Galaxy\\plugins\\installed\\atarijaguar_c1236e5a-5f3a-4681-942a-746433f255ff\\RcloneWrapper.exe"
                 subprocess.Popen([modpath, game.path])
                 break
         return
@@ -166,7 +166,7 @@ class DosboxPlugin(Plugin):
 
         if len(roms_path) == 0:
             PARAMS = {
-                "window_title": "Configure Dosbox Plugin",
+                "window_title": "Configure Rclone Plugin",
                 "window_width": 400,
                 "window_height": 300,
                 "start_uri": "http://localhost:" + str(self.server.port),
@@ -202,6 +202,7 @@ class NCCHGame():
     path: str
 
 
+# This is where shit will break...
 def probe_game(path):
     title = os.path.basename(path)
     ext = os.path.splitext(path)[1].lower()
@@ -245,7 +246,7 @@ def get_games(path):
 
 
 def main():
-    create_and_run_plugin(DosboxPlugin, sys.argv)
+    create_and_run_plugin(RclonePlugin, sys.argv)
 
 
 if __name__ == "__main__":
