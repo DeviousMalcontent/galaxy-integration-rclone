@@ -204,26 +204,10 @@ class NCCHGame():
 
 # This is where shit will break...
 def probe_game(path):
-    title = os.path.basename(path)
-    ext = os.path.splitext(path)[1].lower()
+    #load a test game in to gog galaxy... Nuclear Strike is a small game that i am testing with...
+    title = "Nuclear Strike"
 
-    title = title.replace("~", "-")
-
-    if ext != ".dosbox" and ext != ".zip" and ext != ".DOSBOX" and ext != ".ZIP":
-        return None
-
-    title = os.path.splitext(title)[0]
-    title = title.replace(".zip","")
-    title = title.replace(".ZIP","")
-    title = title.replace(".dosbox","")
-    title = title.replace(".DOSBOX","")
-    title = title.replace("  "," ")
-
-    b = 0;
-    for a in title:
-        b = (b*2) + int(ord(a))
-
-    program_id=str(b)
+    program_id=str(title)
 
     return NCCHGame(program_id=program_id, game_title=title, path=path)
 
